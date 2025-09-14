@@ -14,10 +14,10 @@ router.post("/login", login); // Route for login
 router.post("/logout", logout); // Route for logout
 router.post("/onboarding", protectRoute, onboard); // Route for onboarding
 
-app.use((req, res, next) => {
-  console.log("Cookies:", req.cookies); // 👈 check karo empty hai ya value hai
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log("Cookies:", req.cookies); // 👈 check karo empty hai ya value hai
+//   next();
+// });
 
 router.get("/me", protectRoute, (req, res) => {
   res.status(200).json({
