@@ -56,7 +56,7 @@ export async function signup(req, res) {
       httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
       secure: process.env.NODE_ENV === "production", // Use secure cookies in production
       maxAge: 3600000, // 1 hour in milliseconds
-      sameSite: "Strict", // CSRF protection
+      sameSite: "none", // CSRF protection
     }); // Set the cookie with the token
 
     // Save newUser to the database (not implemented here)
@@ -98,7 +98,7 @@ export async function login(req, res) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 3600000,
-      sameSite: "Strict",
+      sameSite: "none",
     }); // Set the cookie with the token
 
     res.status(200).json({
