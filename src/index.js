@@ -6,5 +6,12 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5005;
 
-await connectDB();
-export default app;
+await connectDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log("server is running");
+    });
+  })
+  .catch((error) => {
+    console.log("error here", error);
+  });
